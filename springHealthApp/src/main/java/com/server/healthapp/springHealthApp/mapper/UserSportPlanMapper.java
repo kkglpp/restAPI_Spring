@@ -12,4 +12,5 @@ public interface UserSportPlanMapper {
     List<PlanDto> getPlanListByUserId(String userId, int lastPlanId, int amount);
     void deletePlan(int planId);
     PlanDto getPlanById(int planId);
+    void UpdaePlan(int planId);
 }//end interface

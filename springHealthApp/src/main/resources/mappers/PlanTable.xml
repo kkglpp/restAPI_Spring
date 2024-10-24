@@ -9,6 +9,12 @@
         VALUES (#{user_Id}, #{sport_id}, #{rec_01}, #{metric_01}, #{rec_02}, #{metric_02}, #{duedate}, #{success},
                 #{success_date})
     </insert>
+    <update id="UpdaePlan">
+
+
+
+
+    </update>
 
     <delete id="deletePlan" parameterType="int">
         DELETE FROM plan
