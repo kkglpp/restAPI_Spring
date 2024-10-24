@@ -1,4 +1,4 @@
-package com.server.healthapp.springHealthApp.Entity;
+package com.server.healthapp.springHealthApp.entity;
 
 
 import jakarta.persistence.Entity;

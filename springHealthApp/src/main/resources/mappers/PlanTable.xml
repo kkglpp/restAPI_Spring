@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.server.healthapp.springHealthApp.mapper.UserSportPlanMapper">
+    <insert id="addPlan" parameterType="com.server.healthapp.springHealthApp.dto.PlanDto">
+        INSERT INTO plan (user_id, sport_id, rec_01, metric_01, rec_02, metric_02, duedate, success, success_date)
+        VALUES (#{user_Id}, #{sport_id}, #{rec_01}, #{metric_01}, #{rec_02}, #{metric_02}, #{duedate}, #{success},
+                #{success_date})
+    </insert>
+
+    <delete id="deletePlan" parameterType="int">
+        DELETE FROM plan
+        WHERE id = #{planId}
+    </delete>
+    <select id="getPlanListByUserId" parameterType="map" resultType="PlanDto">
+        SELECT *
+        FROM plan
+        WHERE user_id = #{userId}
+          AND id > #{lastPlanId}
+        ORDER BY id ASC
+            LIMIT #{amount}
+    </select>
+    <select id="getPlanById" parameterType="int" resultType="com.server.healthapp.springHealthApp.dto.PlanDto">
+        SELECT id, user_id AS userId, sport_id AS sportId, rec_01 AS rec01, metric_01 AS metric01,
+               rec_02 AS rec02, metric_02 AS metric02, duedate, success, success_date AS successDate
+        FROM plan
+        WHERE id = #{planId}
+    </select>
+</mapper>
+

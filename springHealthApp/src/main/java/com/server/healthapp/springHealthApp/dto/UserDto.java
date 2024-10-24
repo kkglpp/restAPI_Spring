@@ -1,5 +1,6 @@
 package com.server.healthapp.springHealthApp.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,9 @@ public class UserDto {
     String name;
     String email;
     String phone;
+    @Schema(hidden = true)
     String register_date;
+    @Schema(hidden = true)
     String refresh_token;
 
 }
